@@ -1,119 +1,68 @@
-# Bitcoin Forecasting with LSTM and SGARCH
+# Bitcoin Forecasting with a Hybrid LSTM-SGARCH Model
 
 ## Overview
 
-This repository contains a reproducible research project focused on forecasting Bitcoin market behaviour using a combination of deep learning and classical volatility modelling methods. The project investigates whether a framework based on **Long Short-Term Memory (LSTM)** networks and **SGARCH** models can provide useful short-term forecasts for Bitcoin data and whether such an approach offers advantages over more traditional time series methods.
+This repository contains a reproducible research project focused on short-term Bitcoin forecasting using a **hybrid LSTM-SGARCH model**. The aim of the project is to examine whether combining **Long Short-Term Memory (LSTM)** networks with **SGARCH** volatility modelling can improve predictive performance in the Bitcoin market.
 
-The project was developed as part of a **reproducible research** course. For that reason, the repository emphasizes not only empirical results, but also transparency, version control, clear project structure, and the ability to fully reproduce the workflow from data collection to final evaluation.
+The project was developed for a **reproducible research** course, with emphasis on transparency, clear documentation, version control, and full reproducibility of the results.
 
 ## Motivation
 
-Forecasting Bitcoin is a difficult problem because the market is highly volatile, noisy, and sensitive to external shocks. Standard linear time series models often struggle to capture complex nonlinear patterns, while deep learning models may detect temporal dependencies that are harder to model using classical approaches alone.
+Bitcoin is a highly volatile asset with nonlinear dynamics and volatility clustering. These properties make it difficult to model using simple linear methods alone.
 
-At the same time, volatility modelling remains highly relevant in financial time series. This motivates combining or comparing **LSTM-based forecasting** with **SGARCH-based volatility modelling** in order to better understand whether such methods are useful for short-horizon Bitcoin prediction.
+This project is based on the idea that:
+
+- **LSTM** can capture nonlinear temporal patterns in sequential data,
+- **SGARCH** can model time-varying conditional volatility,
+- combining both may provide a better forecasting framework for Bitcoin returns.
 
 ## Research Background
 
-This project is based on the research direction presented in the work of **Michańków, Sakowski, and Ślepaczuk**, which studies algorithmic investment strategies using **Long Short-Term Memory** and **time series models** in financial markets. Their work provides an important methodological motivation for comparing modern deep learning methods with more classical financial time series approaches, especially in settings involving volatile assets and return dynamics.
+The project is inspired by the work of **Michańków, Sakowski, and Ślepaczuk**, who studied the use of **LSTM** and **time series models** in financial forecasting and algorithmic investment strategies.
 
-Inspired by that line of research, this repository adapts the idea to a Bitcoin forecasting setting and focuses more directly on the relationship between:
-
-- **deep learning sequence models (LSTM)**,
-- **conditional volatility models (SGARCH)**,
-- and their usefulness in short-term financial forecasting.
-
-The project does not assume in advance that the more complex model will perform better. Instead, it tests whether the additional modelling complexity is justified empirically.
+Building on this research direction, the present project applies the idea to Bitcoin and focuses on a **hybrid LSTM-SGARCH model** that combines sequence learning with volatility modelling in one framework.
 
 ## Research Question
 
-**Can an LSTM-SGARCH forecasting framework improve short-term Bitcoin prediction compared with traditional time series approaches?**
+**Can a hybrid LSTM-SGARCH model improve short-term Bitcoin forecasting compared with standard time series approaches?**
 
 ## Project Objective
 
-The main objective of this project is to evaluate forecasting performance on Bitcoin data using methods drawn from both deep learning and classical econometrics.
+The main objective of this project is to design and evaluate a **hybrid LSTM-SGARCH forecasting framework** for Bitcoin data.
 
-More specifically, the project aims to:
+The project includes:
 
-- collect and preprocess historical Bitcoin price data,
-- transform the data into a form suitable for time series and neural models,
-- model return dynamics and volatility,
-- train and evaluate LSTM-based forecasting models,
-- estimate SGARCH-based volatility models,
-- compare the predictive performance of the models under a common evaluation framework,
-- document the entire process in a reproducible way.
+- collecting and preprocessing Bitcoin data,
+- modelling return dynamics and volatility,
+- building the hybrid LSTM-SGARCH model,
+- comparing it with benchmark approaches,
+- documenting the workflow in a reproducible way.
 
 ## Methodology
 
-The project follows several stages:
+The project workflow includes:
 
-### 1. Data collection
-Historical Bitcoin data is downloaded from a public source or API and stored in a reproducible format.
-
-### 2. Data preprocessing
-The raw data is cleaned and transformed. This may include:
-
-- handling missing values,
-- computing log returns,
-- resampling data if needed,
-- scaling features for neural network models,
-- creating lagged features or rolling statistics.
-
-### 3. Exploratory data analysis
-The data is analysed to understand:
-
-- trends and volatility patterns,
-- return distribution,
-- clustering of volatility,
-- possible nonstationarity,
-- autocorrelation structure.
-
-### 4. Model estimation
-The empirical part of the project includes models such as:
-
-- benchmark time series models,
-- **SGARCH** models for volatility estimation,
-- **LSTM** models for sequence-based prediction,
-- optionally, a combined or comparative **LSTM-SGARCH** framework.
-
-### 5. Evaluation
-Models are compared using selected forecasting metrics, for example:
-
-- MAE,
-- RMSE,
-- MAPE,
-- directional accuracy,
-- and, if included, simple trading or strategy-based evaluation.
-
-### 6. Reporting
-The final stage summarizes the results, discusses model limitations, and evaluates whether the LSTM-SGARCH approach is empirically justified.
-
-## Why this project fits reproducible research
-
-This repository is designed to meet the requirements of reproducible empirical research. In particular, it includes:
-
-- version-controlled code and analysis,
-- a clear folder structure,
-- documented dependencies,
-- explicit environment setup instructions,
-- scripts or notebooks that reproduce each stage of the workflow,
-- transparent reporting of methods and results.
-
-The goal is that another person should be able to clone the repository, install the required environment, run the code, and reproduce the main findings.
+1. data collection,  
+2. preprocessing and feature preparation,  
+3. exploratory data analysis,  
+4. estimation of LSTM, SGARCH, and hybrid models,  
+5. forecasting evaluation using standard metrics,  
+6. reporting and interpretation of results.
 
 ## Repository Structure
 
 ```text
 .
-├── data/                  # raw and processed Bitcoin data
-├── notebooks/             # exploratory analysis and experiments
-├── src/                   # source code
-│   ├── data/              # data download and preprocessing
-│   ├── features/          # feature engineering
-│   ├── models/            # LSTM, SGARCH, and benchmark models
-│   ├── evaluation/        # metrics and model comparison
-│   └── utils/             # helper functions
-├── results/               # saved outputs, forecasts, figures, tables
-├── reports/               # final report or summary documents
-├── requirements.txt       # Python dependencies
-├── environment.yml        # Conda environment definition
+├── data/
+├── notebooks/
+├── src/
+│   ├── data/
+│   ├── features/
+│   ├── models/
+│   ├── evaluation/
+│   └── utils/
+├── results/
+├── reports/
+├── requirements.txt
+├── environment.yml
 └── README.md
