@@ -9,10 +9,10 @@ The project was developed for a **reproducible research** course, with emphasis 
 ## Contributions
 
 This research is conducted by:
-Filip Bronisz
-Michał Sucharzewski 
-Andrzej Żernaczuk 
-Piotr Radziszewski 
+- Filip Bronisz
+- Michał Sucharzewski 
+- Andrzej Żernaczuk 
+- Piotr Radziszewski 
 
 ## Motivation
 
