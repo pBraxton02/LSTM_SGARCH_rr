@@ -6,6 +6,14 @@ This repository contains a reproducible research project focused on short-term B
 
 The project was developed for a **reproducible research** course, with emphasis on transparency, clear documentation, version control, and full reproducibility of the results.
 
+## Contributions
+
+This research is conducted by:
+Filip Bronisz
+Michał Sucharzewski 
+Andrzej Żernaczuk 
+Piotr Radziszewski 
+
 ## Motivation
 
 Bitcoin is a highly volatile asset with nonlinear dynamics and volatility clustering. These properties make it difficult to model using simple linear methods alone.
