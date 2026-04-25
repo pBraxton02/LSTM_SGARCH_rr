@@ -2,75 +2,66 @@
 
 ## Overview
 
-This repository contains a reproducible research project focused on short-term Bitcoin forecasting using a **hybrid LSTM-SGARCH model**. The aim of the project is to examine whether combining **Long Short-Term Memory (LSTM)** networks with **SGARCH** volatility modelling can improve predictive performance in the Bitcoin market.
+This repository contains a reproducible research project on short-term Bitcoin return forecasting using a **hybrid LSTM-SGARCH model**.
 
-The project was developed for a **reproducible research** course, with emphasis on transparency, clear documentation, version control, and full reproducibility of the results.
+The target variable is the **daily Bitcoin log return**. The main model combines:
+
+- an **LSTM neural network** to predict the next daily log return,
+- an **SGARCH model** to model the conditional volatility of the LSTM residuals.
+
+The project evaluates whether this hybrid framework improves both:
+
+1. **forecast accuracy**, and  
+2. **investment performance**
+
+relative to several benchmark models.
+
+The project was developed for a **reproducible research** course, with emphasis on transparent methodology, version control, clear documentation, and reproducible results.
+
+---
 
 ## Contributions
 
 This research is conducted by:
+
 - Filip Bronisz
-- Michał Sucharzewski 
-- Andrzej Żernaczuk 
-- Piotr Radziszewski 
+- Michał Sucharzewski
+- Andrzej Żernaczuk
+- Piotr Radziszewski
+
+---
 
 ## Motivation
 
-Bitcoin is a highly volatile asset with nonlinear dynamics and volatility clustering. These properties make it difficult to model using simple linear methods alone.
+Bitcoin is a highly volatile asset with nonlinear return dynamics and volatility clustering. These properties make it difficult to model using simple forecasting methods.
 
 This project is based on the idea that:
 
-- **LSTM** can capture nonlinear temporal patterns in sequential data,
-- **SGARCH** can model time-varying conditional volatility,
-- combining both may provide a better forecasting framework for Bitcoin returns.
+- **LSTM** can capture nonlinear temporal dependencies in Bitcoin log returns,
+- **SGARCH** can describe time-varying conditional volatility,
+- combining both models may improve forecasting and investment decisions.
+
+The hybrid model is designed so that the LSTM forecasts the conditional mean of the next log return, while SGARCH models the volatility structure remaining in the LSTM residuals.
+
+---
 
 ## Research Background
 
-The project is inspired by the work of **Michańków, Sakowski, and Ślepaczuk**, who studied the use of **LSTM** and **time series models** in financial forecasting and algorithmic investment strategies.
+The project is inspired by the work of **Michańków, Sakowski, and Ślepaczuk**, who studied the use of LSTM-based and time-series models in financial forecasting and algorithmic investment strategies.
 
-Building on this research direction, the present project applies the idea to Bitcoin and focuses on a **hybrid LSTM-SGARCH model** that combines sequence learning with volatility modelling in one framework.
+Building on this research direction, the present project applies a hybrid neural-network and volatility-modelling approach to the Bitcoin market.
+
+---
 
 ## Research Question
 
-**Can a hybrid LSTM-SGARCH model improve short-term Bitcoin forecasting compared with standard time series approaches?**
+**Can a hybrid LSTM-SGARCH model improve daily Bitcoin log-return forecasting and investment performance compared with standalone models and simple benchmarks?**
 
-## Project Objective
+---
 
-The main objective of this project is to design and evaluate a **hybrid LSTM-SGARCH forecasting framework** for Bitcoin data.
+## Target Variable
 
-The project includes:
-
-- collecting and preprocessing Bitcoin data,
-- modelling return dynamics and volatility,
-- building the hybrid LSTM-SGARCH model,
-- comparing it with benchmark approaches,
-- documenting the workflow in a reproducible way.
-
-## Methodology
-
-The project workflow includes:
-
-1. data collection,  
-2. preprocessing and feature preparation,  
-3. exploratory data analysis,  
-4. estimation of LSTM, SGARCH, and hybrid models,  
-5. forecasting evaluation using standard metrics,  
-6. reporting and interpretation of results.
-
-## Repository Structure
+The target variable is the daily Bitcoin log return:
 
 ```text
-.
-├── data/
-├── notebooks/
-├── src/
-│   ├── data/
-│   ├── features/
-│   ├── models/
-│   ├── evaluation/
-│   └── utils/
-├── results/
-├── reports/
-├── requirements.txt
-├── environment.yml
-└── README.md
+r_t = log(P_t / P_{t-1})
