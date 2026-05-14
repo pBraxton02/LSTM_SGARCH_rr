@@ -1,0 +1,12 @@
+{
+  "asset": "BTC",
+  "product_id": "BTC-USD",
+  "source": "coinbase_exchange_spot",
+  "granularity_seconds": 300,
+  "requested_start_utc": "2016-04-13T17:04:17.080409Z",
+  "requested_end_utc": "2026-04-13T17:04:17.080409Z",
+  "observed_start_utc": "2016-04-13T17:05:00Z",
+  "observed_end_utc": "2026-04-13T17:00:00Z",
+  "row_count": 1050487,
+  "downloaded_at_utc": "2026-04-13T17:39:07.275593Z"
+}
