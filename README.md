@@ -20,6 +20,23 @@ The project was developed for a **reproducible research** course, with emphasis 
 
 ---
 
+## WSL Workflow (Required for TensorFlow GPU)
+
+TensorFlow GPU training in this repository is **WSL2-first**.
+
+Use:
+
+- [WSL_SETUP.md](WSL_SETUP.md)
+
+Quick path:
+
+1. `powershell -ExecutionPolicy Bypass -File scripts\wsl_install_admin.ps1` (Admin PowerShell, one-time)
+2. `powershell -ExecutionPolicy Bypass -File scripts\wsl_bootstrap_from_windows.ps1`
+3. In WSL: `bash scripts/wsl_jupyter.sh`
+4. In Jupyter select kernel: `Python (LSTM WSL GPU)`
+
+---
+
 ## Contributions
 
 This research is conducted by:

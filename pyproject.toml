@@ -21,3 +21,9 @@ dev = [
     "seaborn>=0.13.2",
     "statsmodels>=0.14.6",
 ]
+linux-gpu = [
+    "arch>=7.2.0; platform_system == 'Linux'",
+    "setuptools>=70.0.0,<82.0.0; platform_system == 'Linux'",
+    "tensorboard>=2.20.0; platform_system == 'Linux'",
+    "tensorflow[and-cuda]>=2.21.0; platform_system == 'Linux'",
+]

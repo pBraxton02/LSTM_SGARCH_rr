@@ -166,6 +166,18 @@ cython_debug/
 /build
 /dist
 
+#
+# Training artifacts: keep only final best model files
+#
+artifacts/**
+!artifacts/
+!artifacts/lstm_walk_forward/
+!artifacts/lstm_walk_forward/grid_search/
+!artifacts/lstm_walk_forward/grid_search/best_model_overall.keras
+!artifacts/lstm_sgarch_walk_forward/
+!artifacts/lstm_sgarch_walk_forward/grid_search/
+!artifacts/lstm_sgarch_walk_forward/grid_search/best_lstm_overall.keras
+
 /.vscode
 .DS_store
 /*.egg-info
