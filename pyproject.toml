@@ -10,6 +10,7 @@ dependencies = [
     "pandas-stubs>=3.0.0.260204",
     "scikit-learn>=1.4",
     "scikit-learn-stubs>=0.0.3",
+    "tqdm>=4.67.0",
 ]
 
 [dependency-groups]
