@@ -74,17 +74,18 @@ Generated training artifacts are written under `artifacts/`. Most intermediate a
 
 ## Current Results
 
-The saved model-comparison notebook reports the following test-set metrics:
+The saved model-comparison notebook reports the following net strategy results after a 5 bps transaction-cost assumption:
 
-| Model | RMSE | MAE | Direction Accuracy |
-| --- | ---: | ---: | ---: |
-| LSTM | 0.021907 | 0.017668 | 0.566667 |
-| ARIMA | 0.026249 | 0.020850 | 0.433333 |
-| LSTM-SGARCH | 0.070476 | 0.052921 | 0.466667 |
+| Strategy | Total Return | Annualized Return | Annualized Volatility | Sharpe | Sortino | Max Drawdown | Hit Rate | Avg Turnover |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| LSTM-SGARCH | 14.01% | 392.88% | 30.11% | 5.30 | 11.18 | -2.97% | 56.67% | 0.368 |
+| LSTM | 10.73% | 245.52% | 39.51% | 3.14 | 5.54 | -4.98% | 60.00% | 0.433 |
+| BuyHold | 3.57% | 53.23% | 39.92% | 1.07 | 1.72 | -11.92% | 53.33% | 0.033 |
+| ARIMA | -3.54% | -35.53% | 39.94% | -1.10 | -1.69 | -9.75% | 46.67% | 0.033 |
 
-In the current experiment, the standalone LSTM has the best forecast accuracy. The LSTM-SGARCH hybrid does not improve daily return forecast accuracy relative to the standalone LSTM.
+In the current experiment, the LSTM-SGARCH strategy provides the strongest risk-adjusted performance. It produces the highest total return, annualized return, Sharpe ratio, Sortino ratio, and the lowest maximum drawdown among the evaluated strategies.
 
-This does not reject the usefulness of volatility modelling in general. It means that, for this dataset, target definition, feature set, and walk-forward design, the SGARCH residual-volatility component did not translate into better conditional mean forecasts.
+These results should be interpreted as strategy-level outcomes rather than pure forecast-error rankings. The hybrid model benefits from combining the LSTM conditional mean forecast with SGARCH-based residual volatility information, which affects position sizing and risk exposure.
 
 ## Reproducibility
 
