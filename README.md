@@ -111,6 +111,12 @@ Python (LSTM WSL GPU)
 
 For details, see `WSL_SETUP.md`.
 
+## AI-Assisted Development Disclosure
+
+Parts of the source code, notebook refactoring, documentation drafts, and experiment-management utilities in this repository were developed with assistance from OpenAI Codex.
+
+All modelling choices, empirical interpretation, validation design, and final responsibility for the submitted work remain with the project authors. AI-generated suggestions were reviewed, adapted, and integrated by the authors in accordance with the academic requirements of the project.
+
 ## Project Structure
 
 ```text
